@@ -88,9 +88,9 @@ This tool is for authorized security testing only. Obtain proper authorization b
 
 ## 👨‍💻 Author
 
-**Your Name**  
+**JAGADISH.A**  
 Cloud Penetration Tester | Security Researcher  
-[LinkedIn](https://linkedin.com/in/yourprofile) | [Portfolio](https://yourwebsite.com)
+(https:///in/LinkedIn : https://www.linkedin.com/in/jagadish-a-46363a269 GitHub :https://github.com/jagadhish1004 TryHackMe :https://tryhackme.com/p/ajagadish0987 Resume PDF link :https://tryhackme.com/p/ajagadish0987 Email (optional) :jaga307aj@gmail.com Phone (optional) :7305287851) | [Portfolio](https://https://jagadish-prof.netlify.app)
 
 ## 📜 License
 
@@ -123,4 +123,40 @@ For questions or collaboration:
 Permission Denied: chmod +x tools/*; aws sts get-caller-identity.
 
 Dependencies Fail: pip install --upgrade pip setuptools wheel.
+
+- 🏗️ ARCHITECTURE
+-
+- ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Cloud APIs    │───▶│   Scanner Core   │───▶│   Report Engine │
+│ AWS/Azure/GCP   │    │ Prowler+ScoutSuite│    │ HTML/PDF/JSON   │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                 │
+                          ┌──────────────┐
+                          │  API Server  │──▶ CI/CD / Slack / Email
+                          └──────────────┘e Overview
+  🔧 ADVANCED USAGE
+  DOCKER (Production)
+  # docker-compose up -d
+   services: 
+         cloudscan:
+           image: jagadish/cloudsecaudit:latest
+         volumes:
+           - ./reports:/app/reports
+         environment:
+              - AWS_PROFILE=scanner
+
+API Usage
+     
+   curl -X POST http://localhost:8000/scan \
+  -H "Authorization: Bearer $TOKEN" \
+  -d '{"clouds": ["aws"], "profile": "scanner"}'
+   
+     🔍 Detected Vulnerabilities (Examples) 
+         1. S3: Public bucket 'prod-backup-2025' (HIGH)
+2. IAM: Admin role accepts '*' (CRITICAL)
+3. RDS: Unencrypted instance (MEDIUM)
+4. VPC: Internet-facing subnet (HIGH)
+5. KMS: Shared customer keys (LOW)
+
+    
 - 
