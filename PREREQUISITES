@@ -1,0 +1,4 @@
+# System Requirements
+OS: Kali Linux 2026.1 / Ubuntu 24.04 / macOS Ventura+
+RAM: 8GB+ | Disk: 5GB (tools + reports)
+Cloud: Read-only IAM roles (templates included)
