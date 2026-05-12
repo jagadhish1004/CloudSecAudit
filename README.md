@@ -105,7 +105,7 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 ## 📫 Contact
 
 For questions or collaboration:
-- Email: your.email@example.com
+- Email: ajagadish0987@gmail.com
 - GitHub Issues: [Report Issues](https://github.com/yourusername/CloudSecAudit/issues)🛡️ Security & Best Practices
 
     Least Privilege: Use read-only IAM roles (CloudFormation template in config/).
@@ -149,7 +149,7 @@ API Usage
      
    curl -X POST http://localhost:8000/scan \
   -H "Authorization: Bearer $TOKEN" \
-  -d '{"clouds": ["aws"], "profile": "scanner"}'
+  -d '{"clouds": ["aws"], "666546915195": "scanner"}'
    
      🔍 Detected Vulnerabilities (Examples) 
          1. S3: Public bucket 'prod-backup-2025' (HIGH)
