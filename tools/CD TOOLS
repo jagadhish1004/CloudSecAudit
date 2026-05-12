@@ -1,0 +1,20 @@
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install Prowler (AWS Security Scanner)
+cd tools
+git clone https://github.com/prowler-cloud/prowler
+cd prowler
+pip install .
+cd ../..
+
+# Install ScoutSuite (Multi-cloud scanner)
+cd tools
+git clone https://github.com/nccgroup/ScoutSuite
+cd ScoutSuite
+pip install -r requirements.txt
+cd ../..
+
+# Install additional security tools
+pip install boto3 botocore awscli
