@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+# CloudSecAudit - Multi-Cloud Security Scanner (excerpt from paste.txt)
+
+import argparse
+import subprocess
+import json
+import os
+from datetime import datetime
+
+class CloudSecAudit:
+    def __init__(self):
+        self.reportdir = 'reports'
+        os.makedirs(self.reportdir, exist_ok=True)
+    
+    def banner(self):
+        print("CloudSecAudit v1.0 - Professional Cloud Security Scanner")
+    
+    def scan_aws_prowler(self, profile):
+        cmd = ['prowler', 'aws', '--profile', profile]
+        subprocess.run(cmd)
+    
+    def scan_aws_scoutsuite(self, profile):
+        cmd = ['python', 'tools/ScoutSuite/ScoutSuite.py', '-p', profile]
+        subprocess.run(cmd)
+    
+    def generate_summary(self):
+        summary = {
+            'scan_date': datetime.now().isoformat(),
+            'scanner_version': '1.0',
+            'clouds_scanned': ['AWS'],
+            'tools_used': ['Prowler', 'ScoutSuite'],
+            'report_location': self.reportdir
+        }
+        summary_file = os.path.join(self.reportdir, 'summary.json')
+        with open(summary_file, 'w') as f:
+            json.dump(summary, f, indent=4)
+        print(f"Summary saved to {summary_file}")
+
+def main():
+    parser = argparse.ArgumentParser(description="CloudSecAudit - Multi-Cloud Security Scanner")
+    parser.add_argument('--cloud', choices=['aws', 'azure', 'gcp', 'all'], default='aws', help="Cloud provider to scan")
+    parser.add_argument('--profile', default='default', help="AWS profile to use")
+    parser.add_argument('--tool', choices=['prowler', 'scoutsuite', 'both'], default='both', help="Security tool to use")
+    args = parser.parse_args()
+    
+    scanner = CloudSecAudit()
+    scanner.banner()
+    
+    if args.cloud in ['aws', 'all']:
+        if args.tool in ['prowler', 'both']:
+            scanner.scan_aws_prowler(args.profile)
+        if args.tool in ['scoutsuite', 'both']:
+            scanner.scan_aws_scoutsuite(args.profile)
+    
+    scanner.generate_summary()
+    print("All scans completed successfully!")
+    print(f"Check reports at {scanner.reportdir}")
+
+if __name__ == '__main__':
+    main()
