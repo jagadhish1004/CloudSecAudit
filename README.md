@@ -106,4 +106,21 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 For questions or collaboration:
 - Email: your.email@example.com
-- GitHub Issues: [Report Issues](https://github.com/yourusername/CloudSecAudit/issues)
+- GitHub Issues: [Report Issues](https://github.com/yourusername/CloudSecAudit/issues)🛡️ Security & Best Practices
+
+    Least Privilege: Use read-only IAM roles (CloudFormation template in config/).
+
+    No Data Exfil: Local-only processing; no cloud uploads.
+
+    Compliance: Maps to CIS Benchmarks 1.5.0, NIST 800-53.
+
+    Rate Limiting: Built-in throttles to avoid API bans.
+
+🐛 Troubleshooting
+
+    Prowler Python Error: Use Python 3.10-3.13; recreate venv.
+
+Permission Denied: chmod +x tools/*; aws sts get-caller-identity.
+
+Dependencies Fail: pip install --upgrade pip setuptools wheel.
+- 
