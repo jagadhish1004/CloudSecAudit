@@ -1,0 +1,5 @@
+cd tools
+git clone https://github.com/prowler-cloud/prowler  # AWS-focused
+git clone https://github.com/nccgroup/ScoutSuite    # Multi-cloud
+cd ../
+chmod +x scripts/*.py
