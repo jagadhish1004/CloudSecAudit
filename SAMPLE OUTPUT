@@ -1,0 +1,4 @@
+[+] Scan Complete: 245 checks passed, 23 failed
+[+] Report: reports/aws_prowler_20260512/index.html
+[+] High Risks: Public S3 (3), IAM over-priv (2)
+[+] View Dashboard: file://reports/aws_prowler_20260512/
