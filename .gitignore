@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Credentials (NEVER commit these!)
+*.pem
+*.key
+credentials.json
+config.ini
+.env
+*.csv
+*_accessKeys.csv
+
+# Reports with sensitive data
+reports/*.html
+reports/*.json
+reports/*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
